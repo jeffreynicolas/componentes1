@@ -2,6 +2,20 @@
 
 import { ref} from 'vue';
 
+//const props = defineProps(['title','content'])
+
+const props = defineProps({
+titel:{
+    type:String,
+    required:true
+},
+
+content:{
+    type:String,
+    default:'Valor padrão do texto da caixa...'
+}
+})
+
 const showContent = ref(false)
 </script>
 
@@ -10,7 +24,8 @@ const showContent = ref(false)
 <div>
 <button @click="showContent=!showContent">mostrar</button>
 <div v-if="showContent" class="ExpandBox">
-Murilooooooooooooooooooooooooo
+<h1>{{ props.title }}</h1>
+<p>{{ props.content }}</p>
 </div>
 </div>
 
