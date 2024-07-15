@@ -1,6 +1,6 @@
 <script setup>
 
-import { ref} from 'vue';
+import { computed, ref} from 'vue';
 
 //const props = defineProps(['title','content'])
 
@@ -17,6 +17,7 @@ content:{
 })
 
 const showContent = ref(false)
+const textButton = computed(()=>(showContent.value? 'Esconder':'Mostrar'))
 </script>
 
 <template>
@@ -24,8 +25,8 @@ const showContent = ref(false)
 <div>
 <button @click="showContent=!showContent">mostrar</button>
 <div v-if="showContent" class="ExpandBox">
-<h1>{{ props.title }}</h1>
-<p>{{ props.content }}</p>
+<h1>{{ title }}</h1>
+<p>{{ content }}</p>
 </div>
 </div>
 
